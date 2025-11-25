@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Chat // Tim's Build</title>
+    <!-- 引入样式文件 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header" style="display:flex; justify-content:space-between; align-items:center;">
+        CHAT HISTORY
+        <span id="closeSidebarBtn" style="cursor:pointer; font-size:1.5em; line-height:1;" title="关闭">×</span>
+        </div>
+        <div class="history-list">
+            <div class="history-item" onclick="mockHistoryClick()">Project Alpha Plan</div>
+            <div class="history-item" onclick="mockHistoryClick()">Python Refactor</div>
+            <div class="history-item" onclick="mockHistoryClick()">Three.js Concepts</div>
+            <div class="history-item" onclick="mockHistoryClick()">Linux Kernel Notes</div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div style="display:flex; align-items:center; gap:10px;">
+                <span class="info-left" id="menuToggle">☰</span>
+                <span class="info-left">xxxxx</span> <select id="modelSelect" class="model-selector">
+                    <option value="deepseek-ai/DeepSeek-V3">DeepSeek V3</option>
+                    <option value="deepseek-ai/DeepSeek-R1">DeepSeek R1 (Thinking)</option>
+                    <option value="moonshotai/Kimi-K2-Thinking">Kimi K2 (Thinking)</option>
+                    <option value="zai-org/GLM-4.6">GLM 4.6</option>
+                    <option value="baidu/ERNIE-4.5-300B-A47B">ERNIE 4.5</option>
+                    <option value="MiniMaxAI/MiniMax-M2">MiniMax M2</option>
+                    <option value="deepseek-ai/DeepSeek-V3.1-Terminus">DeepSeek Terminus</option>
+                    <option value="Qwen/Qwen3-VL-235B-A22B-Instruct">Qwen3 VL 235B</option>
+                    <option value="Qwen/Qwen3-VL-32B-Instruct">Qwen3 VL 32B</option>
+                </select>
+            </div>
+            <div class="info-right">
+                想偷Key？随你去吧，额度用完了/<br>
+                想要更多key/网站功能bug  请联系开发者
+            </div>
+        </header>
+
+        <div id="chatContainer">
+            <div class="message-row ai">
+                <div class="message-bubble">
+                    <strong>System:</strong> 欢迎。系统已就绪。<br>当前模型: <span id="currentModelDisplay">xxxxx</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-area-wrapper">
+            <div class="input-box-container">
+                <textarea id="userInput" placeholder="输入指令... (Shift+Enter 换行)" rows="1"></textarea>
+                <div class="input-tools">
+                    <label class="file-upload-label">
+                        <input type="file" id="fileInput" accept=".txt">
+                        <span>📂 上传 TXT</span>
+                    </label>
+                    <button id="sendBtn">发送</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 引入脚本文件 -->
+    <script src="script.js"></script>
+</body>
+</html>
